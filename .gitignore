@@ -1,0 +1,10 @@
+/.metadata/
+/main/target/
+.recommenders/
+RemoteSystemsTempFiles/
+/main/.classpath
+/main/.gitignore
+/main/.project
+/main/.settings/org.eclipse.jdt.core.prefs
+/main/.settings/org.eclipse.m2e.core.prefs
+/main/src/main/resources/arquivos/
