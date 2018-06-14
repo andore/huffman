@@ -33,7 +33,7 @@ public class GerenciadorArquivo {
 			System.err.println(e.getStackTrace());
 			return null;
 		}
-		
+		Estatisticas.tamanho_texto = t.length();
 		return t;
 	}
 	

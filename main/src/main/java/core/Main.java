@@ -1,14 +1,19 @@
 package core;
 
+import java.util.Date;
 import java.util.List;
 
 import common.Estatisticas;
 import common.GerenciadorArquivo;
 
 public class Main {
+	private final static String DIRETORIO_ARQUIVOS = "D:\\Projetos\\huffman\\main\\src\\main\\resources\\arquivos";
+	private final static String DIRETORIO_ESTATISTICAS = "D:\\Projetos\\huffman\\main\\src\\main\\resources\\estatisticas\\";
+	
 	public static void main(String[] args) {
-		
-		List<String> listaArquivos = GerenciadorArquivo.getListaArquivos("D:\\Projetos\\huffman\\main\\src\\main\\resources\\arquivos");
+		String nomeArquivoEstatistica = "estatiscas_";
+		List<String> listaArquivos = GerenciadorArquivo.getListaArquivos(DIRETORIO_ARQUIVOS);
+		nomeArquivoEstatistica += new Date().getTime() + ".csv"; 
 		
 		for(String arquivo: listaArquivos) 
 		{
@@ -19,12 +24,12 @@ public class Main {
 			new Hufman().codifica(texto);
 			Estatisticas.imprime();
 			
-			if(GerenciadorArquivo.ler("D:\\Projetos\\huffman\\main\\src\\main\\resources\\estatiscas.csv")==null) 
+			if(GerenciadorArquivo.ler(DIRETORIO_ESTATISTICAS + nomeArquivoEstatistica)==null) 
 			{
-				GerenciadorArquivo.gravar("D:\\Projetos\\huffman\\main\\src\\main\\resources\\estatiscas.csv", Estatisticas.getCabecalhoCsv() );
+				GerenciadorArquivo.gravar(DIRETORIO_ESTATISTICAS  + nomeArquivoEstatistica, Estatisticas.getCabecalhoCsv() );
 			}
 			
-			GerenciadorArquivo.gravar("D:\\Projetos\\huffman\\main\\src\\main\\resources\\estatiscas.csv", Estatisticas.getCsv());
+			GerenciadorArquivo.gravar(DIRETORIO_ESTATISTICAS + nomeArquivoEstatistica, Estatisticas.getCsv());
 			System.out.println("-----------------------------------------\n");
 			Estatisticas.reset();
 		}

@@ -6,7 +6,7 @@ public class ComparadorFrequenciaNo implements Comparator<No>{
 
 	@Override
 	public int compare(No o1, No o2) {
-		Estatisticas.iteracoes++;
+		//Estatisticas.iteracoes++;
 		if(o1.frequencia < o2.frequencia){
 			return -1;
 		}else{

@@ -38,15 +38,13 @@ public class Util {
 
 	public static Map<Character, Integer> getFrequencia(StringBuffer t) {
 		Map<Character, Integer> mapa = new HashMap<Character, Integer>();
-
 		for (char c : t.toString().toCharArray()) {
 			if (mapa.containsKey(c)) {
 				mapa.put(c, mapa.get(c) + 1);
 			} else {
 				mapa.put(c, 1);
 			}
-		}
-		
+		}		
 		Estatisticas.caracteres = mapa.size();
 		return mapa;
 	}
